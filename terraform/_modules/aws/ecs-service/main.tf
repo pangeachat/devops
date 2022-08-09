@@ -35,11 +35,17 @@ resource "aws_ssm_parameter" "image_tag" {
     ignore_changes = [value]
   }
 }
+data "aws_ssm_parameter" "image_tag" {
+  name = "/${var.env}/${var.service_name}/IMAGE_TAG"
+  depends_on = [
+    aws_ssm_parameter.image_tag
+  ]
+}
 
 module "container" {
   source = "../ecs-container"
   name   = local.service_name
-  image  = "${aws_ecr_repository.this.repository_url}:${aws_ssm_parameter.image_tag.value}"
+  image  = "${aws_ecr_repository.this.repository_url}:${data.aws_ssm_parameter.image_tag.value}"
   portMappings = [
     {
       containerPort = var.container_port

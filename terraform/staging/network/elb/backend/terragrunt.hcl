@@ -4,7 +4,7 @@ include "root" {
 
 locals {
   env_vars        = read_terragrunt_config(find_in_parent_folders("env.hcl")).locals
-  certificate_arn = "arn:aws:acm:us-east-1:061565848348:certificate/83c5b5d3-3f7f-4972-83bd-3d8959452ef0"
+  certificate_arn = "arn:aws:acm:us-east-1:061565848348:certificate/d338cb29-4e4a-4064-a841-e2a7aa43371e"
 }
 
 terraform {

@@ -77,7 +77,7 @@ variable "deployment_maximum_percent" {
 variable "deployment_minimum_healthy_percent" {
   type        = number
   description = "The lower limit (as a percentage of `desired_count`) of the number of tasks that must remain running and healthy in a service during a deployment"
-  default     = 75
+  default     = 100
 }
 
 variable "health_check_grace_period_seconds" {

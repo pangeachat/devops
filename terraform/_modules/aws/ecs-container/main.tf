@@ -1,8 +1,19 @@
 locals {
-  env_vars_keys        = var.environment != null ? keys(var.environment) : []
-  env_vars_values      = var.environment != null ? values(var.environment) : []
-  env_vars_as_map      = zipmap(local.env_vars_keys, local.env_vars_values)
-  sorted_env_vars_keys = sort(local.env_vars_keys)
+  secret_vars_keys        = var.secrets != null ? keys(var.secrets) : []
+  secret_vars_values      = var.secrets != null ? values(var.secrets) : []
+  secret_vars_as_map      = zipmap(local.secret_vars_keys, local.secret_vars_values)
+  sorted_secret_vars_keys = sort(local.secret_vars_keys)
+  env_vars_keys           = var.environment != null ? keys(var.environment) : []
+  env_vars_values         = var.environment != null ? values(var.environment) : []
+  env_vars_as_map         = zipmap(local.env_vars_keys, local.env_vars_values)
+  sorted_env_vars_keys    = sort(local.env_vars_keys)
+  sorted_secrets_vars = [
+    for key in local.sorted_secret_vars_keys :
+    {
+      name      = key
+      valueFrom = lookup(local.secret_vars_as_map, key)
+    }
+  ]
 
   sorted_environment_vars = [
     for key in local.sorted_env_vars_keys :
@@ -21,6 +32,8 @@ locals {
   ] : []
 
   # https://www.terraform.io/docs/configuration/expressions.html#null
+  final_secrets_vars = length(local.sorted_secrets_vars) > 0 ? local.sorted_secrets_vars : null
+
   final_environment_vars = length(local.sorted_environment_vars) > 0 ? local.sorted_environment_vars : null
 
   log_configuration_with_null = var.logConfiguration == null ? null : {
@@ -32,6 +45,7 @@ locals {
     k => v
     if v != null
   }
+
   container_definition = {
     name             = var.name
     image            = var.image
@@ -48,6 +62,7 @@ locals {
     memory           = var.memory
     cpu              = var.cpu
     dockerLabels     = var.docker_labels
+    secrets          = local.final_secrets_vars
     environment      = local.final_environment_vars
     startTimeout     = var.startTimeout
     stopTimeout      = var.stopTimeout
