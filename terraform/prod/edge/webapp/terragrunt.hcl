@@ -13,7 +13,7 @@ inputs = {
   bucket_name = "webapp"
   origin_name = "webapp"
   aliases = [
-    "app.pangea.chat",
+    "www.pangea.chat",
     "pangea.chat"
   ]
 

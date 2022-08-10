@@ -51,7 +51,7 @@ inputs = {
     PROD_PORT                   = "5432"
     DJANGO_SETTINGS_MODULE      = "pangeachat.settings.prod"
     DJANGO_ALLOWED_HOSTS        = "*"
-    DJANGO_CSRF_TRUSTED_ORIGINS = "https://api.pangea.chat,https://app.pangea.chat,https://pangea.chat"
+    DJANGO_CSRF_TRUSTED_ORIGINS = "https://api.pangea.chat,https://www.pangea.chat,https://pangea.chat"
   }
   secrets = {
     PROD_HOST     = "arn:aws:ssm:us-east-1:061565848348:parameter/prod/api/PROD_HOST"
