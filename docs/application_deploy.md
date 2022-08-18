@@ -30,3 +30,13 @@ Once the workflow trigger, you can check the status or progress of deploy jobs i
 https://github.com/pangeachat/client-v0/actions/workflows/web-deploy-prod.yml
 
 https://github.com/pangeachat/server/actions/workflows/deploy-prod.yml
+
+## Verify
+
+Staging client: https://app.staging.pangea.chat/
+
+Staging server: https://api.staging.pangea.chat/
+
+Prod client: https://pangea.chat/
+
+Prod server: [https://api.pangea.chat/](https://api.pangea.chat/api/v1/language/list)
