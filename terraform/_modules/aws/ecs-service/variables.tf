@@ -150,3 +150,7 @@ variable "health_check_path" {
   type    = string
   default = "/"
 }
+variable "capacity_provider_strategies" {
+  type    = list(map(any))
+  default = []
+}

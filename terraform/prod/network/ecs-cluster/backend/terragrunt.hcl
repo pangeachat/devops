@@ -11,11 +11,12 @@ terraform {
 
 inputs = {
   name               = "pangea-${local.env_vars.env}-backend"
-  capacity_providers = ["FARGATE"]
+  capacity_providers = ["FARGATE", "FARGATE_SPOT"]
 
   default_capacity_provider_strategy = [
     {
-      capacity_provider = "FARGATE"
+      capacity_provider = "FARGATE_SPOT"
+      weight            = 1
     }
   ]
 }

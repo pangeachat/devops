@@ -94,7 +94,7 @@ resource "aws_ecs_service" "this" {
   enable_ecs_managed_tags            = false
   enable_execute_command             = false
   health_check_grace_period_seconds  = length(var.alb_listener_rules) > 0 ? var.health_check_grace_period_seconds : null
-  launch_type                        = var.launch_type
+  launch_type                        = length(var.capacity_provider_strategies) > 0 ? null : var.launch_type
   scheduling_strategy                = "REPLICA"
   name                               = local.service_name
   tags                               = {}
@@ -133,6 +133,14 @@ resource "aws_ecs_service" "this" {
     ] : [var.security_group_id]
     subnets          = var.subnets
     assign_public_ip = var.assign_public_ip
+  }
+  dynamic "capacity_provider_strategy" {
+    for_each = var.capacity_provider_strategies
+    content {
+      base              = lookup(capacity_provider_strategy.value, "base", 0)
+      capacity_provider = capacity_provider_strategy.value.capacity_provider
+      weight            = capacity_provider_strategy.value.weight
+    }
   }
   timeouts {}
 

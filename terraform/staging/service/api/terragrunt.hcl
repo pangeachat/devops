@@ -54,8 +54,15 @@ inputs = {
     DJANGO_CSRF_TRUSTED_ORIGINS = "https://api.staging.pangea.chat,https://app.staging.pangea.chat"
   }
   secrets = {
-    STAGE_HOST     = "arn:aws:ssm:us-east-1:061565848348:parameter/staging/api/STAGE_HOST"
-    STAGE_PASSWORD = "arn:aws:ssm:us-east-1:061565848348:parameter/staging/api/STAGE_PASSWORD"
-    SECRET_KEY     = "arn:aws:ssm:us-east-1:061565848348:parameter/staging/api/SECRET_KEY"
+    STAGE_HOST         = "arn:aws:ssm:us-east-1:061565848348:parameter/staging/api/STAGE_HOST"
+    STAGE_PASSWORD     = "arn:aws:ssm:us-east-1:061565848348:parameter/staging/api/STAGE_PASSWORD"
+    SECRET_KEY         = "arn:aws:ssm:us-east-1:061565848348:parameter/staging/api/SECRET_KEY"
+    ADMIN_ACCESS_TOKEN = "arn:aws:ssm:us-east-1:061565848348:parameter/staging/api/ADMIN_ACCESS_TOKEN"
   }
+  # capacity_provider_strategies = [
+  #   {
+  #     capacity_provider = "FARGATE_SPOT"
+  #     weight            = 1
+  #   }
+  # ]
 }
