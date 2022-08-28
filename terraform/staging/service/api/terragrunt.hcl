@@ -59,10 +59,10 @@ inputs = {
     SECRET_KEY         = "arn:aws:ssm:us-east-1:061565848348:parameter/staging/api/SECRET_KEY"
     ADMIN_ACCESS_TOKEN = "arn:aws:ssm:us-east-1:061565848348:parameter/staging/api/ADMIN_ACCESS_TOKEN"
   }
-  # capacity_provider_strategies = [
-  #   {
-  #     capacity_provider = "FARGATE_SPOT"
-  #     weight            = 1
-  #   }
-  # ]
+  capacity_provider_strategies = [
+    {
+      capacity_provider = "FARGATE_SPOT"
+      weight            = 1
+    }
+  ]
 }
