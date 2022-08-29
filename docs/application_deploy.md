@@ -37,6 +37,6 @@ Staging client: https://app.staging.pangea.chat/
 
 Staging server: https://api.staging.pangea.chat/
 
-Prod client: https://pangea.chat/
+Prod client: https://app.pangea.chat/
 
 Prod server: [https://api.pangea.chat/](https://api.pangea.chat/api/v1/language/list)

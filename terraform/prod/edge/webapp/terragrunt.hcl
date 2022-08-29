@@ -6,15 +6,14 @@ locals {
 }
 
 terraform {
-  source = "${get_parent_terragrunt_dir()}//_modules/aws/static-web-with-synapse-discovery"
+  source = "${get_parent_terragrunt_dir()}//_modules/aws/static-web"
 }
 
 inputs = {
   bucket_name = "webapp"
   origin_name = "webapp"
   aliases = [
-    "www.pangea.chat",
-    "pangea.chat"
+    "app.pangea.chat",
   ]
 
   acm_certificate_arn = "arn:aws:acm:us-east-1:061565848348:certificate/83c5b5d3-3f7f-4972-83bd-3d8959452ef0"

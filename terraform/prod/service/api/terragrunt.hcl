@@ -51,11 +51,12 @@ inputs = {
     PROD_PORT                   = "5432"
     DJANGO_SETTINGS_MODULE      = "pangeachat.settings.prod"
     DJANGO_ALLOWED_HOSTS        = "*"
-    DJANGO_CSRF_TRUSTED_ORIGINS = "https://api.pangea.chat,https://www.pangea.chat,https://pangea.chat"
+    DJANGO_CSRF_TRUSTED_ORIGINS = "https://api.pangea.chat,https://app.pangea.chat"
   }
   secrets = {
-    PROD_HOST     = "arn:aws:ssm:us-east-1:061565848348:parameter/prod/api/PROD_HOST"
-    PROD_PASSWORD = "arn:aws:ssm:us-east-1:061565848348:parameter/prod/api/PROD_PASSWORD"
-    SECRET_KEY    = "arn:aws:ssm:us-east-1:061565848348:parameter/prod/api/SECRET_KEY"
+    PROD_HOST          = "arn:aws:ssm:us-east-1:061565848348:parameter/prod/api/PROD_HOST"
+    PROD_PASSWORD      = "arn:aws:ssm:us-east-1:061565848348:parameter/prod/api/PROD_PASSWORD"
+    SECRET_KEY         = "arn:aws:ssm:us-east-1:061565848348:parameter/prod/api/SECRET_KEY"
+    ADMIN_ACCESS_TOKEN = "arn:aws:ssm:us-east-1:061565848348:parameter/prod/api/ADMIN_ACCESS_TOKEN"
   }
 }
