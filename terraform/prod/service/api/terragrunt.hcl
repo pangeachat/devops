@@ -41,8 +41,8 @@ inputs = {
     }
   ]
   desired_count  = 1
-  task_cpu       = 1024
-  task_memory    = 2048
+  task_cpu       = 512
+  task_memory    = 1024
   container_port = 8000
   # command        = split(" ", "gunicorn pangeachat.wsgi:application --bind 0.0.0.0:8000 --workers 3 --worker-class=gevent --timeout=20")
   environment = {
