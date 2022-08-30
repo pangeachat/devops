@@ -47,13 +47,19 @@ inputs = {
   container_port       = 5000
 
   environment = {
-    PROD_DB_NAME                = "pangea_prod_learner"
-    PROD_USER                   = "pangea_prod_admin"
-    PROD_PORT                   = "5432"
+    DB_NAME                = "pangea_prod_learner"
+    DB_USER                   = "pangea_prod_admin"
+    DB_PORT                   = "5432"
   }
   secrets = {
-    PROD_HOST     = "arn:aws:ssm:us-east-1:061565848348:parameter/prod/2stepchoreo/learner_db_host"
-    PROD_PASSWORD = "arn:aws:ssm:us-east-1:061565848348:parameter/prod/2stepchoreo/learner_db_pass"
+    DB_HOST     = "arn:aws:ssm:us-east-1:061565848348:parameter/prod/2stepchoreo/learner_db_host"
+    DB_PASSWORD = "arn:aws:ssm:us-east-1:061565848348:parameter/prod/2stepchoreo/learner_db_pass"
   }
+  capacity_provider_strategies = [
+    {
+      capacity_provider = "FARGATE_SPOT"
+      weight            = 1
+    }
+  ]
 
 }
