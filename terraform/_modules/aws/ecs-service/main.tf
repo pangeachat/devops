@@ -148,7 +148,7 @@ resource "aws_ecs_service" "this" {
 
 resource "aws_lb_target_group" "this" {
   count                         = length(var.alb_listener_rules) > 0 ? 1 : 0
-  deregistration_delay          = 300
+  deregistration_delay          = 30
   load_balancing_algorithm_type = "round_robin"
   name                          = substr(local.service_name, 0, 32)
   port                          = var.container_port
