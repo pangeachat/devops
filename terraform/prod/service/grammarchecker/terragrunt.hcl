@@ -27,7 +27,7 @@ dependency "sg" {
 }
 
 inputs = {
-  service_name      = "interactive-translator"
+  service_name      = "grammarchecker"
   vpc_id            = dependency.vpc.outputs.vpc_id
   cluster_arn       = dependency.ecs_cluster.outputs.ecs_cluster_arn
   security_group_id = dependency.sg.outputs.security_group_id
@@ -36,26 +36,15 @@ inputs = {
   alb_listener_rules = [
     {
       conditions = [{
-        path_patterns = ["/itfirststep", "/itstep"]
+        path_patterns = ["/grammarchecker"]
       }]
     }
   ]
   health_check_matcher = "404"
   desired_count        = 0
-  task_cpu             = 2048
-  task_memory          = 8192
+  task_cpu             = 512
+  task_memory          = 4096
   container_port       = 5000
-  
-  environment = {
-    DB_NAME                = "pangea_prod_learner"
-    DB_USER                   = "pangea_prod_admin"
-    DB_PORT                   = "5432"
-  }
-  secrets = {
-    DB_HOST     = "arn:aws:ssm:us-east-1:061565848348:parameter/prod/2stepchoreo/learner_db_host"
-    DB_PASSWORD = "arn:aws:ssm:us-east-1:061565848348:parameter/prod/2stepchoreo/learner_db_pass"
-  }
-  
   capacity_provider_strategies = [
     {
       capacity_provider = "FARGATE_SPOT"
