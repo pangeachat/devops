@@ -36,7 +36,7 @@ inputs = {
   alb_listener_rules = [
     {
       conditions = [{
-        path_patterns = ["/choreo", "/it_initialstep", "/it_step", "/message_service", "/learner_data"]
+        path_patterns = ["/choreo", "/choreo/*"]
       }]
     }
   ]
@@ -47,9 +47,10 @@ inputs = {
   container_port       = 5000
 
   environment = {
-    DB_NAME                = "pangea_staging_learner"
-    DB_USER                   = "pangea_staging_admin"
-    DB_PORT                   = "5432"
+    API_URL                 = "https://api.staging.pangea.chat"
+    DB_NAME                 = "pangea_staging_learner"
+    DB_USER                 = "pangea_staging_admin"
+    DB_PORT                 = "5432"
   }
   secrets = {
     DB_HOST     = "arn:aws:ssm:us-east-1:061565848348:parameter/staging/2stepchoreo/learner_db_host"

@@ -52,8 +52,8 @@ inputs = {
     DB_PORT                   = "5432"
   }
   secrets = {
-    DB_HOST     = "arn:aws:ssm:us-east-1:061565848348:parameter/prod/2stepchoreo/learner_db_host"
-    DB_PASSWORD = "arn:aws:ssm:us-east-1:061565848348:parameter/prod/2stepchoreo/learner_db_pass"
+    DB_HOST     = "arn:aws:ssm:us-east-1:061565848348:parameter/prod/interactive-translator/learner_db_host"
+    DB_PASSWORD = "arn:aws:ssm:us-east-1:061565848348:parameter/prod/interactive-translator/learner_db_pass"
   }
   
   capacity_provider_strategies = [
