@@ -58,8 +58,8 @@ inputs = {
     STAGE_PASSWORD      = "arn:aws:ssm:us-east-1:061565848348:parameter/staging/api/STAGE_PASSWORD"
     SECRET_KEY          = "arn:aws:ssm:us-east-1:061565848348:parameter/staging/api/SECRET_KEY"
     ADMIN_ACCESS_TOKEN 	= "arn:aws:ssm:us-east-1:061565848348:parameter/staging/api/ADMIN_ACCESS_TOKEN"
-	EMAIL_HOST_USER	   	= "arn:aws:ssm:us-east-1:061565848348:parameter/staging/api/EMAIL_HOST_USER"
-	EMAIL_HOST_PASSWORD = "arn:aws:ssm:us-east-1:061565848348:parameter/staging/api/EMAIL_HOST_PASSWORD"
+    EMAIL_HOST_USER	   	= "arn:aws:ssm:us-east-1:061565848348:parameter/staging/api/EMAIL_HOST_USER"
+    EMAIL_HOST_PASSWORD = "arn:aws:ssm:us-east-1:061565848348:parameter/staging/api/EMAIL_HOST_PASSWORD"
   }
   capacity_provider_strategies = [
     {
