@@ -51,11 +51,13 @@ inputs = {
     DB_NAME                 = "pangea_prod_learner"
     DB_USER                 = "pangea_prod_admin"
     DB_PORT                 = "5432"
+    LANGUAGE_TOOL_USER      = "wcjord@email.wm.edu"
   }
   secrets = {
     DB_HOST     = "arn:aws:ssm:us-east-1:061565848348:parameter/prod/2stepchoreo/learner_db_host"
     DB_PASSWORD = "arn:aws:ssm:us-east-1:061565848348:parameter/prod/2stepchoreo/learner_db_pass"
     API_KEY = "arn:aws:ssm:us-east-1:061565848348:parameter/prod/2stepchoreo/api_key"
+    LANGUAGE_TOOL_API_KEY = "arn:aws:ssm:us-east-1:061565848348:parameter/prod/2stepchoreo/language_tool_api_key"
   }
   capacity_provider_strategies = [
     {
